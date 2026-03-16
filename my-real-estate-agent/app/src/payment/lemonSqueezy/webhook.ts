@@ -116,19 +116,14 @@ async function handleOrderCreated(
     lemonSqueezyId,
   });
 
-  let numOfCreditsPurchased: number | undefined = undefined;
-  let datePaid: Date | undefined = undefined;
-  if (status === "paid" && plan.effect.kind === "credits") {
-    numOfCreditsPurchased = plan.effect.amount;
-    datePaid = new Date();
-  }
+  const datePaid = status === "paid" ? new Date() : undefined;
 
   await updateUserLemonSqueezyPaymentDetails(
     {
       lemonSqueezyId,
       userId,
       lemonSqueezyCustomerPortalUrl,
-      numOfCreditsPurchased,
+      numOfCreditsPurchased: undefined,
       datePaid,
     },
     prismaUserDelegate,
