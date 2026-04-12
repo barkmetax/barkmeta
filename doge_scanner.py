@@ -6,19 +6,40 @@ Reads a CSV of Dogecoin wallet addresses, checks balances via the Blockchair API
 and reports wallets with >= 100 DOGE.
 
 Usage:
-    python doge_scanner.py <path_to_csv>
+    Double-click this file, OR run: python doge_scanner.py <path_to_csv>
 """
 
-import argparse
 import csv
 import os
+import subprocess
 import sys
 import time
 
-import requests
-from rich.console import Console
-from rich.table import Table
-from tqdm import tqdm
+
+def install_dependencies():
+    """Auto-install required packages if missing."""
+    required = ["requests", "rich", "tqdm"]
+    missing = []
+    for pkg in required:
+        try:
+            __import__(pkg)
+        except ImportError:
+            missing.append(pkg)
+    if missing:
+        print(f"Installing required packages: {', '.join(missing)}...")
+        subprocess.check_call(
+            [sys.executable, "-m", "pip", "install"] + missing,
+            stdout=subprocess.DEVNULL,
+        )
+        print("Done!\n")
+
+
+install_dependencies()
+
+import requests  # noqa: E402
+from rich.console import Console  # noqa: E402
+from rich.table import Table  # noqa: E402
+from tqdm import tqdm  # noqa: E402
 
 BLOCKCHAIR_URL = "https://api.blockchair.com/dogecoin/addresses/balances"
 SATOSHIS_PER_DOGE = 100_000_000
@@ -238,26 +259,53 @@ def print_summary(total_scanned, funded, skipped_count):
     console.print()
 
 
-def main():
-    parser = argparse.ArgumentParser(
-        description="Scan Dogecoin wallets and find funded addresses (>= 100 DOGE)."
-    )
-    parser.add_argument("csv_path", help="Path to CSV file containing Dogecoin addresses")
-    args = parser.parse_args()
+def pick_file():
+    """Open a file picker dialog so the user can select their CSV."""
+    try:
+        import tkinter as tk
+        from tkinter import filedialog
 
-    csv_path = os.path.abspath(args.csv_path)
+        root = tk.Tk()
+        root.withdraw()  # Hide the main window
+        root.attributes("-topmost", True)
+        file_path = filedialog.askopenfilename(
+            title="Select your CSV file with Dogecoin addresses",
+            filetypes=[("CSV files", "*.csv"), ("All files", "*.*")],
+        )
+        root.destroy()
+        return file_path
+    except Exception:
+        return None
+
+
+def main():
+    # If a CSV path was passed as an argument, use it.
+    # Otherwise, open a file picker window.
+    if len(sys.argv) > 1:
+        csv_path = os.path.abspath(sys.argv[1])
+    else:
+        print("No file specified — opening file picker...\n")
+        csv_path = pick_file()
+        if not csv_path:
+            print("No file selected. Exiting.")
+            input("\nPress Enter to close...")
+            sys.exit(0)
+
+    csv_path = os.path.abspath(csv_path)
     if not os.path.isfile(csv_path):
         print(f"Error: File not found: {csv_path}")
+        input("\nPress Enter to close...")
         sys.exit(1)
 
     console = Console()
-    console.print(f"[bold]Dogecoin Wallet Scanner[/bold]")
+    console.print("[bold]Dogecoin Wallet Scanner[/bold]")
     console.print(f"Input: {csv_path}\n")
 
     # Step 1: Read addresses
     addresses = read_addresses(csv_path)
     if not addresses:
         print("Error: No valid Dogecoin addresses found in the CSV.")
+        input("\nPress Enter to close...")
         sys.exit(1)
     console.print(f"Found {len(addresses):,} valid Dogecoin addresses.\n")
 
@@ -278,6 +326,9 @@ def main():
 
     # Step 6: Summary
     print_summary(len(addresses), funded, len(skipped))
+
+    # Keep window open so the user can read the results
+    input("\nDone! Press Enter to close...")
 
 
 if __name__ == "__main__":
