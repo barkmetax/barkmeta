@@ -1,0 +1,294 @@
+{
+  "config": {
+    "SEEDS_N": 3,
+    "MATCH_GAMES": 24,
+    "GRAD_GAMES": 40,
+    "GA_GENS": 4,
+    "GA_POP": 12,
+    "GA_GAMES": 4,
+    "COMBO_GAMES": 40
+  },
+  "skill_sanity": {
+    "Bows": 0.5666666666666667,
+    "Crowns": 0.375,
+    "Pirates": 0.6916666666666667,
+    "Wizards": 0.4666666666666667,
+    "Zombies": 0.6416666666666667
+  },
+  "ga_history": {
+    "Bows": [
+      0.7,
+      0.7,
+      0.65,
+      0.75
+    ],
+    "Crowns": [
+      0.9,
+      0.85,
+      0.95,
+      0.9
+    ],
+    "Pirates": [
+      0.65,
+      0.65,
+      0.7,
+      0.7
+    ],
+    "Wizards": [
+      0.6,
+      0.7,
+      0.65,
+      0.7
+    ],
+    "Zombies": [
+      0.55,
+      0.45,
+      0.5,
+      0.6
+    ]
+  },
+  "grid": {
+    "Bows": {
+      "Bows": 0.4722222222222222,
+      "Crowns": 0.375,
+      "Pirates": 0.5416666666666666,
+      "Wizards": 0.6111111111111112,
+      "Zombies": 0.625
+    },
+    "Crowns": {
+      "Bows": 0.625,
+      "Crowns": 0.4861111111111111,
+      "Pirates": 0.763888888888889,
+      "Wizards": 0.6944444444444444,
+      "Zombies": 0.75
+    },
+    "Pirates": {
+      "Bows": 0.4861111111111111,
+      "Crowns": 0.2222222222222222,
+      "Pirates": 0.4861111111111111,
+      "Wizards": 0.6388888888888888,
+      "Zombies": 0.5416666666666666
+    },
+    "Wizards": {
+      "Bows": 0.3611111111111111,
+      "Crowns": 0.2777777777777778,
+      "Pirates": 0.4027777777777778,
+      "Wizards": 0.4444444444444444,
+      "Zombies": 0.5416666666666666
+    },
+    "Zombies": {
+      "Bows": 0.4027777777777778,
+      "Crowns": 0.2777777777777778,
+      "Pirates": 0.3055555555555556,
+      "Wizards": 0.4861111111111111,
+      "Zombies": 0.4583333333333333
+    }
+  },
+  "class_avg_search": {
+    "Bows": 0.5381944444444444,
+    "Crowns": 0.7083333333333334,
+    "Pirates": 0.4722222222222222,
+    "Wizards": 0.3958333333333333,
+    "Zombies": 0.3680555555555556
+  },
+  "top_class": "Crowns",
+  "top_losing_matchups": [],
+  "gradient": {
+    "Bows": {
+      "low": 0.4,
+      "high": 0.5381944444444444
+    },
+    "Crowns": {
+      "low": 0.7791666666666667,
+      "high": 0.7083333333333334
+    },
+    "Pirates": {
+      "low": 0.425,
+      "high": 0.4722222222222222
+    },
+    "Wizards": {
+      "low": 0.5604166666666667,
+      "high": 0.3958333333333333
+    },
+    "Zombies": {
+      "low": 0.37083333333333335,
+      "high": 0.3680555555555556
+    }
+  },
+  "pool_ceiling": 0.7083333333333334,
+  "combo_helios": {
+    "winrate": 0.95,
+    "median_kill_turn": 22.0,
+    "decided_kills": 34,
+    "games": 40
+  },
+  "combo_vorruk": {
+    "winrate": 0.5,
+    "median_kill_turn": 14.5,
+    "decided_kills": 20,
+    "games": 40
+  },
+  "best_decklists": {
+    "Bows": [
+      "Arrow Storm",
+      "Arrow Storm",
+      "Ashpaw",
+      "Atlas",
+      "Bannerbow",
+      "Bannerbow",
+      "Bow Keeper",
+      "Bow Keeper",
+      "Dartbow",
+      "Fenrir, the Worldender",
+      "Fenrir, the Worldender",
+      "Frostbolt",
+      "Grave Tax",
+      "Keenhound",
+      "Keenhound",
+      "Mathmutt",
+      "Pack Ambush",
+      "Pitfall",
+      "Quivermaiden",
+      "Quivermaiden",
+      "Ribbon Pup",
+      "Ribbon Pup",
+      "Ribbonhound",
+      "Skyfall Archer",
+      "Skyfall Archer",
+      "Trench Warfare",
+      "Unmarked Grave",
+      "Unspell",
+      "Venom Cur",
+      "Wardbreaker"
+    ],
+    "Crowns": [
+      "Ashpaw",
+      "Bastion Hound",
+      "Bastion Hound",
+      "Bloodchapel Cur",
+      "Cathedral Guardian",
+      "Cathedral Healer",
+      "Chapel Keeper",
+      "Chapel Keeper",
+      "Crown Judgment",
+      "Dawn Acolyte",
+      "Fenrir, the Worldender",
+      "Last Stand",
+      "Loose the Hounds",
+      "Mama Bark",
+      "Mama Bark",
+      "Mathmutt",
+      "Mathmutt",
+      "Reliquary Hound",
+      "Reliquary Hound",
+      "Royal Page",
+      "Royal Page",
+      "Sanctuary",
+      "Stonecur",
+      "Stonecur",
+      "The Sun King",
+      "The Sun King",
+      "Tithe Collector",
+      "Unmarked Grave",
+      "Venom Cur",
+      "Venom Cur"
+    ],
+    "Pirates": [
+      "Bilge Rat",
+      "Bombardier",
+      "Broadside Gunner",
+      "Calypso the Gunner Queen",
+      "Calypso the Gunner Queen",
+      "Cap'n Brindle",
+      "Charthound",
+      "Charthound",
+      "Chum the Water",
+      "Coat the Blades",
+      "Cull",
+      "Doomsayer",
+      "Doomsayer",
+      "Dread Captain Saoirse",
+      "Fireball",
+      "Fireball",
+      "Frostbolt",
+      "Hushwarden",
+      "Hushwarden",
+      "Mathmutt",
+      "Powder Pup",
+      "Press-Gang",
+      "Quartermaster",
+      "Quartermaster",
+      "Rugpull",
+      "Scout Ahead",
+      "Silence Cur",
+      "Sly Stowaway",
+      "Tide Caller",
+      "Wardbreaker"
+    ],
+    "Wizards": [
+      "Atlas",
+      "Atlas",
+      "Cut Down",
+      "Doomsayer",
+      "Doomsayer",
+      "Embermane",
+      "Embermane",
+      "Emberwisp the Kindler",
+      "Fireball",
+      "Fireball",
+      "Frost Lock",
+      "Frost Lock",
+      "Glacewisp",
+      "Glyphmaster",
+      "Glyphmaster",
+      "Last Stand",
+      "Last Stand",
+      "Mary",
+      "Mirrorward",
+      "Mirrorward",
+      "Pestilence",
+      "Pyroblast",
+      "Runewing",
+      "Runewing",
+      "Scrollhound",
+      "Scrollhound",
+      "Sparkpup",
+      "Vaultwarden",
+      "Vorruk the Emberlord",
+      "Wardbreaker"
+    ],
+    "Zombies": [
+      "Atlas",
+      "Atlas",
+      "Bonewall",
+      "Bonewall",
+      "Cut Down",
+      "Doomsayer",
+      "Doomsayer",
+      "Fireball",
+      "Grave Bargain",
+      "Gravecaller",
+      "Gravechoir",
+      "Gravechoir",
+      "Gravedigger Pup",
+      "Graveseer",
+      "Graveseer",
+      "Hollow Shepherd",
+      "Hollow Shepherd",
+      "Hushwarden",
+      "Last Stand",
+      "Loose the Hounds",
+      "Mathmutt",
+      "Necrarch the Unending",
+      "Precipice",
+      "Rotbound Hound",
+      "Rugpull",
+      "Tomb Forager",
+      "Tomb Forager",
+      "Vaultwarden",
+      "Venom Cur",
+      "Wardbreaker"
+    ]
+  },
+  "elapsed_sec": 339.5
+}
