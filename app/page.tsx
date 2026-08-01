@@ -1,21 +1,25 @@
-import Hero from '@/components/Hero';
-import NewsOutlets from '@/components/NewsOutlets';
-import HowItWorks from '@/components/HowItWorks';
-import Benefits from '@/components/Benefits';
-import Pricing from '@/components/Pricing';
-import Results from '@/components/Results';
-import FAQ from '@/components/FAQ';
+import Hero from '@/components/home/Hero';
+import CardShowcase from '@/components/home/CardShowcase';
+import HowToPlayTeaser from '@/components/home/HowToPlayTeaser';
+import NewsSection from '@/components/home/NewsSection';
+import Community from '@/components/home/Community';
+import ShopProducts from '@/components/home/ShopProducts';
+import Grading from '@/components/home/Grading';
+import TournamentCarousel from '@/components/home/TournamentCarousel';
+import AppDownload from '@/components/home/AppDownload';
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <NewsOutlets />
-      <HowItWorks />
-      <Benefits />
-      <Pricing />
-      <Results />
-      <FAQ />
+      <CardShowcase />
+      <HowToPlayTeaser />
+      <NewsSection />
+      <Community />
+      <ShopProducts />
+      <Grading />
+      <TournamentCarousel />
+      <AppDownload />
     </>
   );
 }

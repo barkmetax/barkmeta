@@ -1,7 +1,20 @@
 @import "tailwindcss";
 
-@theme inline {
-  --font-inter: var(--font-inter);
+@theme {
+  --color-cream: #f4ecdb;
+  --color-paper: #fffcf2;
+  --color-sand: #ece1c8;
+  --color-ink: #1a1409;
+  --color-ink-soft: #4a4030;
+  --color-doge: #e9a93d;
+  --color-doge-deep: #b97a14;
+  --color-bark: #cf3f2b;
+  --color-moon: #4d5fb8;
+  --color-storm: #2e8c85;
+  --color-bone: #c2452f;
+
+  --font-display: var(--font-display-var), "Arial Narrow", Impact, sans-serif;
+  --font-body: var(--font-body-var), system-ui, -apple-system, sans-serif;
 }
 
 html {
@@ -9,37 +22,50 @@ html {
 }
 
 body {
-  background: #0a0a0a;
-  color: #f5f5f5;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-body);
 }
 
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
 }
 
-.animate-scroll {
-  animation: scroll 30s linear infinite;
+/* Halftone dot texture used on section backgrounds */
+.dots {
+  background-image: radial-gradient(rgba(26, 20, 9, 0.08) 1px, transparent 1px);
+  background-size: 12px 12px;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+.dots-light {
+  background-image: radial-gradient(rgba(255, 252, 242, 0.12) 1px, transparent 1px);
+  background-size: 12px 12px;
 }
 
-::-webkit-scrollbar-track {
-  background: #0a0a0a;
+.pixelated {
+  image-rendering: pixelated;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #222;
-  border-radius: 4px;
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #333;
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+::selection {
+  background: var(--color-doge);
+  color: var(--color-ink);
 }

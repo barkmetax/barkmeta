@@ -1,12 +1,16 @@
 import type { Metadata } from 'next';
+import { Bebas_Neue, Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
+const display = Bebas_Neue({ weight: '400', subsets: ['latin'], variable: '--font-display-var' });
+const body = Inter({ subsets: ['latin'], variable: '--font-body-var' });
+
 export const metadata: Metadata = {
-  title: 'BarkPush - Get Your Brand Published on Major News Sites',
+  title: 'Doginal Dogs TCG — Legends of the Pack',
   description:
-    'Press release distribution to 400+ news outlets. Build trust, rank on Google, and dominate AI search results. Starting at $195.',
+    'The official Doginal Dogs Trading Card Game. Collect hand-pixeled legends, lead your pack, and battle for the Golden Bone. Volume 01 presale is live.',
 };
 
 export default function RootLayout({
@@ -15,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="antialiased">
-      <body className="min-h-screen bg-[#0a0a0a] text-[#f5f5f5]" style={{ fontFamily: 'Inter, system-ui, -apple-system, sans-serif' }}>
+    <html lang="en" className={`${display.variable} ${body.variable} antialiased`}>
+      <body className="flex min-h-screen flex-col">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
